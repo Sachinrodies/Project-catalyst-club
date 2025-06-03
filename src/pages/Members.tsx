@@ -96,7 +96,7 @@ const members: Member[] = [
     github: 'https://github.com/nitishkumar2303',
     linkedin: 'https://www.linkedin.com/in/nitishkumar2303/',
     email: 'nk2332001@gmail.com',
-    bio: 'Matrix Design Team Head'
+    bio: 'The Catalyst Coding Club Design Team Head'
   },
   {
     id: '9',

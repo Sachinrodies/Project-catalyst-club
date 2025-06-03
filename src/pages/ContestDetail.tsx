@@ -154,8 +154,8 @@ const ContestDetail = () => {
                   If you have any questions or face any issues during the contest, please contact:
                 </p>
                 <ul className="list-disc list-inside space-y-1 text-gray-300 mt-2">
-                  <li>Email: matrix@manit.ac.in</li>
-                  <li>Discord: Join our server at discord.gg/matrixcodingclub</li>
+                  <li>Email: catalyst@manit.ac.in</li>
+                  <li>Discord: Join our server at discord.gg/catalystcodingclub</li>
                 </ul>
               </div>
             </div>

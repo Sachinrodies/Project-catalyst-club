@@ -90,7 +90,7 @@ catalyst-club/
 
 ## 📝 License
 
-This project is licensed under the MATRIX License - see the LICENSE file for details.
+This project is licensed under the CATALYST License - see the LICENSE file for details.
 
 ## 🤝 Contributing
 

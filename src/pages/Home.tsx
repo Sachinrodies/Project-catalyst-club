@@ -115,7 +115,7 @@ const Home = () => {
             Join Our Coding Community
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Connect with fellow MCA students, participate in contests, and grow your technical skills with Matrix Coding Club.
+            Connect with fellow MCA students, participate in contests, and grow your technical skills with The Catalyst Coding Club.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link to="/register" className="btn-primary bg-white text-matrix-green-800 hover:bg-gray-100">

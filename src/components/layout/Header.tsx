@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, Code, User, Users } from 'lucide-react';
-import MatrixLogo from '../shared/MatrixLogo';
+import CatalystLogo from '../shared/CatalystLogo';
 import { useAuth } from '../../contexts/AuthContext';
 
 const Header = () => {
@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   const headerClass = `fixed w-full top-0 z-50 transition-all duration-300 ${
-    isScrolled ? 'bg-matrix-dark-900/95 backdrop-blur-sm shadow-lg shadow-matrix-green-500/10' : 'bg-transparent'
+    isScrolled ? 'bg-catalyst-dark-900/95 backdrop-blur-sm shadow-lg shadow-catalyst-green-500/10' : 'bg-transparent'
   }`;
 
   return (
@@ -36,9 +36,9 @@ const Header = () => {
       <div className="container-custom py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
-            <MatrixLogo className="h-10 w-10" />
+            <CatalystLogo className="h-10 w-10" />
             <span className="text-2xl font-display font-bold text-white">
-              MATRIX
+              THE CATALYST 
             </span>
           </Link>
 
@@ -93,7 +93,7 @@ const Header = () => {
               <>
                 <Link 
                   to="/profile" 
-                  className="flex items-center space-x-1 text-matrix-green-400 hover:text-matrix-green-300 transition-colors"
+                  className="flex items-center space-x-1 text-catalyst-green-400 hover:text-catalyst-green-300 transition-colors"
                 >
                   <User size={18} />
                   <span>{user.username}</span>
@@ -115,7 +115,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <button 
             onClick={toggleMenu} 
-            className="md:hidden text-white hover:text-matrix-green-500 transition-colors"
+            className="md:hidden text-white hover:text-catalyst-green-500 transition-colors"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -125,7 +125,7 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-matrix-dark-800/95 backdrop-blur-sm animate-fade-in">
+        <div className="md:hidden bg-catalyst-dark-800/95 backdrop-blur-sm animate-fade-in">
           <nav className="container-custom py-4 flex flex-col space-y-2">
             <NavLink 
               to="/" 
@@ -174,7 +174,7 @@ const Header = () => {
               Members
             </NavLink>
             
-            <div className="pt-2 mt-2 border-t border-matrix-dark-700 flex flex-col space-y-2">
+            <div className="pt-2 mt-2 border-t border-catalyst-dark-700 flex flex-col space-y-2">
               {user ? (
                 <>
                   <Link 

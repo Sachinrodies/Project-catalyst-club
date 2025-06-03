@@ -6,7 +6,7 @@ import { useContest } from '../../contexts/ContestContext';
 const Hero = () => {
   const { upcomingContests } = useContest();
   const [charIndex, setCharIndex] = useState(0);
-  const codeText = '# MANIT Coding Club\ndef solve_problem(skill):\n    return skill * practice + teamwork\n\n# Join our next contest!';
+  const codeText = '# The Catalyst\ndef solve_problem(skill):\n    return skill * practice + teamwork\n\n# Join our next contest!';
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,14 +27,19 @@ const Hero = () => {
       <div className="container-custom relative z-10 py-16 md:py-24 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white">
-              <span className="text-matrix-green-500">Matrix</span> Coding Club
-              <span className="block mt-2 text-xl md:text-2xl font-medium text-gray-300">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              <span className="bg-gradient-to-r from-matrix-green-400 to-matrix-green-600 text-transparent bg-clip-text">
+                THE CATALYST
+              </span>
+              <span className="block text-2xl md:text-3xl lg:text-4xl font-bold text-white mt-1">
+                Coding Club
+              </span>
+              <span className="block text-lg md:text-xl font-medium text-gray-300 mt-1">
                 Maulana Azad National Institute of Technology
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
+            <p className="text-lg md:text-xl text-gray-300 max-w-2xl mt-4">
               Join our community of passionate MCA students and coding enthusiasts. Participate in contests, collaborate on projects, and grow your technical skills with us.
             </p>
             

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
-import MatrixLogo from '../shared/MatrixLogo';
+import CatalystLogo from '../shared/CatalystLogo';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,9 +11,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1 lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <MatrixLogo className="h-10 w-10" />
+              <CatalystLogo className="h-10 w-10" />
               <span className="text-2xl font-display font-bold text-white">
-                MATRIX
+                THE CATALYST
               </span>
             </div>
             <p className="text-gray-400 mb-4">
@@ -21,7 +21,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://github.com/matrix-coding-club" 
+                href="https://github.com/catalyst-coding-club" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-matrix-green-500 transition-colors"
@@ -30,7 +30,7 @@ const Footer = () => {
                 <Github size={20} />
               </a>
               <a 
-                href="https://www.linkedin.com/company/matrixthetechnicalclub/" 
+                href="https://www.linkedin.com/company/catalystthetechnicalclub/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-matrix-green-500 transition-colors"
@@ -39,14 +39,14 @@ const Footer = () => {
                 <Linkedin size={20} />
               </a>
               <a 
-                href="mailto:matrix@manit.ac.in" 
+                href="mailto:catalyst@manit.ac.in" 
                 className="text-gray-400 hover:text-matrix-green-500 transition-colors"
                 aria-label="Email"
               >
                 <Mail size={20} />
               </a>
               <a 
-                href="https://instagram.com/matrix_coding_club" 
+                href="https://instagram.com/catalyst_coding_club" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-matrix-green-500 transition-colors"
@@ -109,7 +109,7 @@ const Footer = () => {
 
         <div className="mt-10 pt-6 border-t border-matrix-dark-700 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            &copy; {currentYear} Matrix Coding Club. All rights reserved.
+            &copy; {currentYear} The Catalyst Coding Club. All rights reserved.
           </p>
           <p className="text-gray-400 text-sm">
             Made with <span className="text-matrix-green-500">♥</span> by Sachin Jha

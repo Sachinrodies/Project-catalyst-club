@@ -34,7 +34,7 @@ const Register: React.FC = () => {
     <div className="min-h-screen bg-matrix-dark-900 py-12">
       <div className="container-custom">
         <div className="max-w-md mx-auto">
-          <h1 className="text-3xl font-bold text-white mb-6 text-center">Join Matrix Coding Club</h1>
+          <h1 className="text-3xl font-bold text-white mb-6 text-center">Join The Catalyst Coding Club</h1>
           <div className="bg-matrix-dark-800 rounded-lg shadow-lg p-8 border border-matrix-dark-700">
             <div className="mb-6 p-4 bg-matrix-green-500/10 border border-matrix-green-500/20 rounded-lg">
               <div className="flex items-start space-x-3">
