@@ -1,4 +1,4 @@
-import { Tag, Users, ExternalLink, GraduationCap } from 'lucide-react';
+import { Tag, Users, ExternalLink, GraduationCap, Github } from 'lucide-react';
 import { ProjectIdea } from '../../types/project';
 
 interface ProjectCardProps {
@@ -44,7 +44,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </div>
         </div>
         
-        <div className="mt-auto">
+        <div className="mt-auto flex flex-col gap-2">
           {project.websiteUrl && (
             <a 
               href={project.websiteUrl} 
@@ -54,6 +54,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             >
               <ExternalLink size={16} />
               <span>Live Link</span>
+            </a>
+          )}
+          {project.githubUrl && (
+            <a 
+              href={project.githubUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-matrix-dark-700 text-white rounded-md flex items-center justify-center space-x-2 hover:bg-matrix-dark-600 transition-colors w-full"
+            >
+              <Github size={16} />
+              <span>View on GitHub</span>
             </a>
           )}
         </div>

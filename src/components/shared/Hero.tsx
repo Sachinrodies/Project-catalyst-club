@@ -77,7 +77,7 @@ const Hero = () => {
                 <div className="w-3 h-3 rounded-full bg-warning"></div>
                 <div className="w-3 h-3 rounded-full bg-success"></div>
               </div>
-              <span className="text-xs text-gray-400">matrix_terminal.py</span>
+              <span className="text-xs text-gray-400">The_Catalyst.py</span>
             </div>
             
             <pre className="font-code text-sm lg:text-base overflow-x-auto p-4 bg-matrix-dark-900 rounded">

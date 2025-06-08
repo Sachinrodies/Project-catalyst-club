@@ -2,42 +2,21 @@ import { ProjectIdea } from '../types/project';
 
 export const mockProjects: ProjectIdea[] = [
   {
-    id: 'project-7',
-    title: 'Library QR Code Entry-Exit System',
-    description: 'A digital solution to replace manual library attendance tracking. Students can scan QR codes to record their entry and exit times automatically. The system provides daily, weekly, and monthly progress reports, while faculty can analyze attendance data with various filters.',
+    id: 'project-9',
+    title: 'MANIT TYPE',
+    description: 'A typing speed test platform exclusively for MANIT students. Challenge yourself and compete with fellow students to see who\'s the fastest typer in MANIT. Track your progress, check your rank on the leaderboard, and improve your typing skills.',
     difficulty: 'Intermediate',
     category: 'Web Development',
-    tags: ['QR Code', 'Authentication', 'Data Analytics', 'Admin Dashboard'],
-    githubUrl: 'https://github.com/matrix-coding-club/library-attendance',
-    websiteUrl: 'https://att-lib.manit.ac.in/',
+    tags: ['Typing Test', 'Leaderboard', 'Student Platform', 'Progress Tracking'],
+    githubUrl: 'https://github.com/avinashchaturvedi2002/MANIT-TYPE.git',
+    websiteUrl: 'https://manit-type-mftz.vercel.app',
     requirements: [
-      'QR code generation and scanning functionality',
-      'Student authentication using Scholar ID',
-      'Automatic time recording for entry and exit',
-      'Progress reports and analytics dashboard',
-      'Admin panel for faculty access',
-      'Data export and visualization features',
-      'Real-time attendance monitoring'
-    ]
-  },
-  {
-    id: 'project-8',
-    title: 'NIT Bhopal Automated Placement System',
-    description: 'A comprehensive placement management system designed specifically for NIT Bhopal, revolutionizing the job application and placement experience. The system offers automated features for both students and coordinators, streamlining the entire placement process.',
-    difficulty: 'Advanced',
-    category: 'Web Development',
-    tags: ['Placement', 'Automation', 'Job Portal', 'Student Management'],
-    githubUrl: 'https://github.com/priya-tripathi/Placement-Management-System',
-    websiteUrl: 'https://placement.manit.ac.in/',
-    requirements: [
-      'Real-time job posting and management',
-      'Student profile and resume management',
-      'Automated scheduling system for recruitment rounds',
-      'Personalized calendar for students',
-      'Application tracking and progress monitoring',
-      'Offer acceptance and application closure system',
-      'Data export and reporting features',
-      'Conflict-free scheduling for coordinators'
+      'MANIT email authentication',
+      'Customizable time duration for tests',
+      'Real-time typing speed calculation',
+      'Global and category-wise leaderboards',
+      'User profile with progress tracking',
+      'Responsive design for optimal experience'
     ]
   }
 ];
