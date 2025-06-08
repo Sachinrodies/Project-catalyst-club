@@ -44,6 +44,7 @@ const members: Member[] = [
       name: 'Mukesh Pradhan ',
       role: 'member',
       image: 'https://media.licdn.com/dms/image/v2/D4D03AQFrXNfWI-8B-w/profile-displayphoto-shrink_400_400/B4DZTWPfuYHIAg-/0/1738761175226?e=1755129600&v=beta&t=rT6f7hk2ApGp7EdiU0mu_D2-5kYP3d1IlqnThdE34jU',
+      github: 'https://github.com/codeMukesh07',
       linkedin: 'https://www.linkedin.com/in/mukesh-pradhan-879543321/',
       email: 'mukesh.dev.2003@gmail.com',
       bio: 'Team member'
