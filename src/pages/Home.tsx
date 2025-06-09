@@ -8,6 +8,7 @@ import ContestCard from '../components/contests/ContestCard';
 import AnnouncementCard from '../components/announcements/AnnouncementCard';
 import ProjectCard from '../components/projects/ProjectCard';
 import UpcomingContestsCard from '../components/home/UpcomingContestsCard';
+import EventsSection from '../components/events/EventsSection';
 
 const Home = () => {
   const { contests: upcomingContests } = useContest();
@@ -17,7 +18,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       <Hero />
-      
+      <EventsSection />
       {/* External Contests */}
       <section className="py-16 bg-matrix-dark-900 matrix-grid">
         <div className="container-custom">

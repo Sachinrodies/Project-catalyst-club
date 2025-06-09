@@ -1,149 +1,96 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
-export type User = {
+interface User {
   id: string;
-  username: string;
+  name: string;
   email: string;
-  role: 'student' | 'admin';
-};
+  role: string;
+  image?: string;
+}
 
 interface AuthContextType {
   user: User | null;
-  login: (email: string, password: string) => Promise<void>;
-  register: (username: string, email: string, password: string) => Promise<void>;
+  loading: boolean;
+  login: (data: { email: string; password: string }) => Promise<any>;
+  register: (data: { name: string; email: string; password: string }) => Promise<any>;
   logout: () => void;
-  isLoading: boolean;
-  error: string | null;
 }
 
-const AuthContext = createContext<AuthContextType | null>(null);
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
-};
-
-interface AuthProviderProps {
-  children: ReactNode;
-}
-
-export const AuthProvider = ({ children }: AuthProviderProps) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  
-  // Mock login function - would connect to backend in real app
-  const login = async (email: string, password: string) => {
-    setIsLoading(true);
-    setError(null);
-    
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Mock validation
-      if (email === 'admin@matrix.com' && password === 'password') {
-        const userData: User = {
-          id: '1',
-          username: 'admin',
-          email: 'admin@matrix.com',
-          role: 'admin'
-        };
-        
-        setUser(userData);
-        localStorage.setItem('matrixUser', JSON.stringify(userData));
-      } else if (email === 'user@example.com' && password === 'password') {
-        const userData: User = {
-          id: '2',
-          username: 'testuser',
-          email: 'user@example.com',
-          role: 'student'
-        };
-        
-        setUser(userData);
-        localStorage.setItem('matrixUser', JSON.stringify(userData));
-      } else {
-        throw new Error('Invalid email or password');
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to login');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  
-  // Mock register function
-  const register = async (username: string, email: string, password: string) => {
-    setIsLoading(true);
-    setError(null);
-    
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Mock validation
-      if (!username || !email || !password) {
-        throw new Error('All fields are required');
-      }
-      
-      if (password.length < 6) {
-        throw new Error('Password must be at least 6 characters');
-      }
-      
-      const userData: User = {
-        id: Date.now().toString(),
-        username,
-        email,
-        role: 'student'
-      };
-      
-      setUser(userData);
-      localStorage.setItem('matrixUser', JSON.stringify(userData));
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to register');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem('matrixUser');
-  };
-  
-  // Load user from localStorage on initial render
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    const loadUser = () => {
-      const storedUser = localStorage.getItem('matrixUser');
-      if (storedUser) {
-        try {
-          setUser(JSON.parse(storedUser));
-        } catch (err) {
-          // If JSON parsing fails, clear localStorage
-          localStorage.removeItem('matrixUser');
-        }
-      }
-      setIsLoading(false);
-    };
-    
-    loadUser();
+    const token = localStorage.getItem('token');
+    if (token) {
+      validateToken(token);
+    } else {
+      setLoading(false);
+    }
   }, []);
-  
+
+  const validateToken = async (token: string) => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/me`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setUser(response.data.user);
+    } catch (error) {
+      localStorage.removeItem('token');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const login = async (data: { email: string; password: string }) => {
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, data);
+      const { token, user } = response.data;
+      localStorage.setItem('token', token);
+      setUser(user);
+      return { success: true };
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.response?.data?.message || 'Authentication failed'
+      };
+    }
+  };
+
+  const register = async (data: { name: string; email: string; password: string }) => {
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, data);
+      const { token, user } = response.data;
+      localStorage.setItem('token', token);
+      setUser(user);
+      return { success: true };
+    } catch (error: any) {
+      return {
+        success: false,
+        message: error.response?.data?.message || 'Registration failed'
+      };
+    }
+  };
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    setUser(null);
+  };
+
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        login,
-        register,
-        logout,
-        isLoading,
-        error
-      }}
-    >
+    <AuthContext.Provider value={{ user, loading, login, register, logout }}>
       {children}
     </AuthContext.Provider>
   );
+};
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
 };
